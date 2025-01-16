@@ -1,0 +1,48 @@
+
+
+POST http://localhost:3000/disciplina HTTP/1.1
+Content-Type: application/json
+
+{ 
+  "nome" : "Carlos", 
+  "descricao": "teste", 
+  "carga_horaria":60, 
+  "semestre": 1, 
+  "professor_responsavel": "processor" 
+}
+
+###
+GET  http://localhost:3000/disciplina/ HTTP/1.1
+
+
+###
+GET  http://localhost:3000/disciplina/4 HTTP/1.1
+
+###
+DELETE http://localhost:3000/disciplina/4 HTTP/1.1
+
+###
+PUT http://localhost:3000/disciplina/5 HTTP/1.1
+Content-Type: application/json
+
+{ 
+  "nome" : "Carlos", 
+  "descricao": "teste 222", 
+  "carga_horaria":60, 
+  "semestre": 1, 
+  "professor_responsavel": "processor" 
+}
+
+###
+PATCH  http://localhost:3000/disciplina/5 HTTP/1.1
+Content-Type: application/json
+
+{ 
+  "nome" : "Carlos fernando", 
+  "descricao": "estudante", 
+  "carga_horaria":60, 
+  "semestre": 1, 
+  "professor_responsavel": "processor" 
+}
+
+

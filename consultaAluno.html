@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulta de Alunos</title>
+  <style>
+    body {
+      background-color: #1b1b1b;
+      color: #f0f0f0;
+      font-family: 'Garamond', serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i.pinimg.com/originals/45/fe/4c/45fe4c0b74574b600eaf9f5f42896c93.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    h1 {
+      text-align: center;
+      color: #f7d700;
+      font-size: 3em;
+      text-shadow: 2px 2px 5px #000000;
+      margin-top: 50px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    li {
+      font-size: 1.5em;
+      margin: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #f7d700;
+      box-shadow: 0px 0px 10px #ffcc00;
+    }
+
+    li:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+    
+    /* Font from Harry Potter */
+    @import url('https://fonts.googleapis.com/css2?family=Harry+P+Regular&display=swap');
+    
+    body {
+      font-family: 'Harry P Regular', cursive, sans-serif;
+    }
+
+    .back-btn {
+      background-color: #444;
+      color: #fff;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .back-btn:hover {
+      background-color: #666;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Lista de Alunos 🧙‍♂️✨</h1>
+  <ul id="alunos-list">
+    <!-- Exemplo de aluno com emoji -->
+    <li>🦉 João Silva (12345)</li>
+    <li>✨ Maria Oliveira (67890)</li>
+    <li>⚡ Lucas Pereira (11223)</li>
+  </ul>
+  <button type="button" class="back-btn" onclick="window.history.back()">🔙 Voltar</button>
+  <script>
+    fetch('/aluno')
+      .then(response => response.json())
+      .then(alunos => {
+        const ul = document.getElementById('alunos-list');
+        alunos.forEach(aluno => {
+          const li = document.createElement('li');
+          li.textContent = `🧙‍♂️ ${aluno.nome} (${aluno.matricula})`;
+          ul.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
